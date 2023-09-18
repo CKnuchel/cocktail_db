@@ -1,0 +1,26 @@
+img {
+    width: 45%;
+    height: 45%;
+    object-fit: cover;
+    padding-top: 2rem;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    padding-top: 0.5rem;
+}
+
+.home {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom left, #540404, #ADA1A1);
+    height: 100vh;
+}
+
+.home-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
