@@ -47,7 +47,7 @@ export default function Zufall() {
                 <h1>Cocktail DB</h1>
             </div>
             <div className="RandomButton">
-                <button onClick={fetchCocktailData}>Zufälliger Cocktail</button>
+                <button className='random' onClick={fetchCocktailData}>Zufälliger Cocktail</button>
                 {cocktailData && (
                     <h2>{cocktailData.strDrink}</h2>
                 )}
