@@ -1,0 +1,75 @@
+.cocktail-page {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom left, #540404, #ADA1A1);
+    height: 93.2vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchBar {
+    margin: 0;
+    padding-top: 40px;
+    padding-left: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.searchBar input {
+    height: 40px;
+    width: 400px;
+    border-radius: 45px;
+    text-align: center;
+    align-self: center;
+}
+
+button {
+    margin-left: 20px;
+    height: 40px;
+    width: 60px;
+    border-radius: 45px;
+}
+
+.cocktail-title {
+    padding-top: 20px;
+    color: white;
+    text-align: center;
+    font-size: 32px;
+}
+
+.infos {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 100px;
+}
+
+.cocktail-img {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.cocktail-ingredients,
+.cocktail-instructions {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 10px;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+    color: white;
+}
