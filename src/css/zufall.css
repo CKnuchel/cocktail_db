@@ -87,6 +87,10 @@
 
 .RandomButton button {
     margin-top: 10px;
+    margin-left: 20px;
+    height: 40px;
+    width: 400px;
+    border-radius: 45px;
 }
 
 /* Aktualisierte Cocktail-Titel-Stile */
