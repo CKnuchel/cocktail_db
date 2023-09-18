@@ -124,12 +124,12 @@ button {
   overflow-y: auto;
 }
 
-ul {
+.white-ul {
   list-style-type: none;
   padding: 0;
 }
 
-li {
+.white-ul li {
   margin-bottom: 5px;
   color: white;
 }

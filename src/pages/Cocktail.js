@@ -67,7 +67,7 @@ export default function Cocktail() {
             </div>
             <div className="cocktail-ingredients">
               <h3>Zutaten</h3>
-              <ul>{renderIngredients()}</ul>
+              <ul className="white-ul">{renderIngredients()}</ul>
             </div>
             <div className="cocktail-instructions">
               <h3>Zubereitung</h3>
