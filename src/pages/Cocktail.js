@@ -56,8 +56,6 @@ export default function Cocktail() {
                         <img
                             src={cocktailData.strDrinkThumb}
                             alt={cocktailData.strDrink}
-                            width="400"
-                            height="400"
                         />
                     </div>
                     <div className="cocktail-ingredients">
