@@ -133,3 +133,7 @@ li {
   margin-bottom: 5px;
   color: white;
 }
+
+.site-title a {
+  color: white;
+}

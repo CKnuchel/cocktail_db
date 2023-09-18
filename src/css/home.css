@@ -24,3 +24,7 @@ h1 {
   align-items: center;
   flex-direction: column;
 }
+
+.site-title a {
+  color: white;
+}

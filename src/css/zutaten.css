@@ -139,3 +139,7 @@ h3,
 p {
   color: white;
 }
+
+.site-title a {
+    color: white;
+  }
