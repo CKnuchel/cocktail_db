@@ -44,9 +44,6 @@ export default function Cocktail() {
 
     return (
         <div className="cocktail-page">
-            <div className="cocktail-title">
-                <h1>Cocktail DB</h1>
-            </div>
             <div className="searchBar">
                 <input
                     type="text"
@@ -56,8 +53,12 @@ export default function Cocktail() {
                 />
                 <button onClick={fetchCocktailData}>Suchen</button>
             </div>
+            <div className="cocktail-title">
+                        <h2>{cocktailData.strDrink}</h2>
+            </div>
             {cocktailData && (
                 <div className="infos">
+
                     <div className="cocktail-img">
                         <img
                             src={cocktailData.strDrinkThumb}
