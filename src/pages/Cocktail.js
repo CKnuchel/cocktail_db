@@ -44,6 +44,9 @@ export default function Cocktail() {
 
   return (
     <div className="cocktail-page">
+      <div className="title">
+        <h1>Cocktail DB</h1>
+      </div>
       <div className="searchBar">
         <input
           type="text"
@@ -53,21 +56,23 @@ export default function Cocktail() {
         />
         <button onClick={fetchCocktailData}>Suchen</button>
       </div>
-      <div className="cocktail-title">
-        <h2>{cocktailData.strDrink}</h2>
-      </div>
       {cocktailData && (
-        <div className="infos">
-          <div className="cocktail-img">
-            <img src={cocktailData.strDrinkThumb} alt={cocktailData.strDrink} />
+        <div>
+          <div className="cocktail-title">
+            <h2>{cocktailData.strDrink}</h2>
           </div>
-          <div className="cocktail-ingredients">
-            <h3>Zutaten</h3>
-            <ul>{renderIngredients()}</ul>
-          </div>
-          <div className="cocktail-instructions">
-            <h3>Zubereitung</h3>
-            <p>{cocktailData.strInstructionsDE}</p>
+          <div className="infos">
+            <div className="cocktail-img">
+              <img src={cocktailData.strDrinkThumb} alt={cocktailData.strDrink} />
+            </div>
+            <div className="cocktail-ingredients">
+              <h3>Zutaten</h3>
+              <ul>{renderIngredients()}</ul>
+            </div>
+            <div className="cocktail-instructions">
+              <h3>Zubereitung</h3>
+              <p>{cocktailData.strInstructionsDE}</p>
+            </div>
           </div>
         </div>
       )}
