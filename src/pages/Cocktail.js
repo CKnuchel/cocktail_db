@@ -24,17 +24,23 @@ export default function Cocktail() {
 
     function renderIngredients() {
         const ingredients = [];
-        for (let i = 1; i <= 15; i++) {
+        for (let i = 1; i <= 15; i++) { //Max 16 Zutaten
             const ingredient = cocktailData[`strIngredient${i}`];
             const measure = cocktailData[`strMeasure${i}`];
             if (ingredient && measure) {
                 ingredients.push(`${measure} ${ingredient}`);
             }
         }
-        return ingredients.map((ingredient, index) => (
-            <li key={index}>{ingredient}</li>
-        ));
-    }
+
+        if (ingredients.length === 0) {
+            return <li>Keine Zutaten gefunden</li>;
+        }
+        else {
+            return ingredients.map((ingredient, index) => (
+                <li key={index}>{ingredient}</li>
+            ));
+        }
+    }   
 
     return (
         <div className="cocktail-page">
