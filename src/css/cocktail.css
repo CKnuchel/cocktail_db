@@ -78,8 +78,8 @@ button {
 }
 
 .cocktail-title {
-  padding-top: 20px; /* Anpassung auf 20px */
-  margin-top: 0; /* Hinzugefügt, um den oberen Abstand zu entfernen */
+  padding-top: 20px;
+  margin-top: 0;
   color: white;
   text-align: center;
   font-size: 32px;
@@ -101,7 +101,8 @@ button {
   overflow: hidden;
 }
 
-.cocktail-ingredients {
+.cocktail-ingredients,
+.cocktail-instructions {
   flex: 1;
   max-width: 400px;
   margin: 0 10px;
@@ -112,16 +113,6 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.cocktail-instructions {
-  flex: 1;
-  max-width: 400px;
-  margin: 0 10px;
-  text-align: center;
-  font-size: 18px;
-  color: white;
-  overflow-y: auto;
 }
 
 .white-ul {

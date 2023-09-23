@@ -104,10 +104,14 @@
 .cocktail-instructions {
   width: 100%; /* Änderung: volle Seitenbreite */
   text-align: center;
-  padding: 20px; /* Füge Padding hinzu, um den Abstand zu erhöhen */
   font-size: 18px;
   color: white;
   overflow-y: auto;
+}
+
+.cocktail-instructions h3 {
+  font-size: 18px;
+  padding-bottom: 5px;
 }
 
 ul {
