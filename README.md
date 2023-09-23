@@ -8,7 +8,7 @@ Folge diesen Schritten, um die Cocktail DB auf deinem lokalen Rechner zu install
 
 1. **Git Repository klonen**
 
-   Öffne dein Terminal und führe den folgenden Befehl aus, um das Projekt von GitHub zu klonen:
+   	Öffne dein Terminal und führe den folgenden Befehl aus, um das Projekt von GitHub zu klonen:
 
    	```shell
    	git clone https://github.com/CKnuchel/cocktail_db.git
