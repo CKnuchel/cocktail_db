@@ -10,13 +10,13 @@ Folge diesen Schritten, um die Cocktail DB auf deinem lokalen Rechner zu install
 
    Öffne dein Terminal und führe den folgenden Befehl aus, um das Projekt von GitHub zu klonen:
 
-   ```shell
-   git clone https://github.com/CKnuchel/cocktail_db.git
+   	```shell
+   	git clone https://github.com/CKnuchel/cocktail_db.git
 	```
 	
 2. **Projektverzeichnis wechseln**
 
-Wechsle in das Verzeichnis des geklonten Projekts:
+	Wechsle in das Verzeichnis des geklonten Projekts:
 
 	```shell
 	cd cocktail_db
@@ -24,7 +24,7 @@ Wechsle in das Verzeichnis des geklonten Projekts:
 	
 3. **Abhängigkeiten installieren**
 
-Installiere die erforderlichen Node.js-Abhängigkeiten mit npm:
+	Installiere die erforderlichen Node.js-Abhängigkeiten mit npm:
 
 	```shell
 	npm install
@@ -32,13 +32,13 @@ Installiere die erforderlichen Node.js-Abhängigkeiten mit npm:
 	
 4. **Starte die Anwendung**
 
-Starte die React-App mit dem folgenden Befehl:
+	Starte die React-App mit dem folgenden Befehl:
 
 	```shell
 	npm start
 	```
 	
-Die App sollte nun unter http://localhost:3000 erreichbar sein.
+	Die App sollte nun unter http://localhost:3000 erreichbar sein.
 
 ## Mitwirkende
 - Christoph Knuchel - Entwickler
