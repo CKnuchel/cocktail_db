@@ -14,7 +14,7 @@ export default function Zufall() {
       if (data.drinks && data.drinks.length > 0) {
         setCocktailData(data.drinks[0]);
       } else {
-        alert("Kein Cocktail gefunden");
+        alert("Es konnte kein Cocktail gefunden werden");
       }
     } catch (error) {
       console.error("Fehler beim Abrufen der Daten:", error);
