@@ -15,7 +15,7 @@ export default function Cocktail() {
       if (data.drinks && data.drinks.length > 0) {
         setCocktailData(data.drinks[0]);
       } else {
-        alert("Kein Cocktail mit diesem Namen gefunden");
+        alert("Es wurde kein Cocktail mit diesem Namen gefunden");
       }
     } catch (error) {
       console.error("Fehler beim Abrufen der Daten:", error);
