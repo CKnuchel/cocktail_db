@@ -15,7 +15,7 @@ export default function Zutaten() {
       if (data.ingredients && data.ingredients.length > 0) {
         setCocktailData(data.ingredients[0]);
       } else {
-        alert("Keine Zutaten mit diesem Namen gefunden");
+        alert("Es wurde kein Zutat mit diesem Namen gefunden");
       }
     } catch (error) {
       console.error("Fehler beim Abrufen der Daten:", error);
