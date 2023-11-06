@@ -43,6 +43,8 @@ Folge diesen Schritten, um die Cocktail DB auf deinem lokalen Rechner zu install
 	
 	Die App sollte nun unter http://localhost:3000 erreichbar sein.
 
+Die eigene API und deren Verwaltungstool ist in Arbeit
+
 ## Mitwirkende
 - Christoph Knuchel - Entwickler
 
