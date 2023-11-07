@@ -21,54 +21,73 @@ export default function Cocktail() {
     }
   }
 
+  function handleKeyPress(event) {
+    if (event.key === "Enter") {
+      fetchCocktailData();
+    }
+  }
+
   function renderIngredients() {
     const ingredients = [];
     for (let i = 1; i <= 15; i++) {
-      //Max 16 Zutaten
+      // Max 16 Zutaten
       const ingredient = cocktailData[`strIngredient${i}`];
       const measure = cocktailData[`strMeasure${i}`];
       if (ingredient && measure) {
-        ingredients.push(`${measure} ${ingredient}`);
+        ingredients.push({ ingredient, measure });
       }
     }
 
     if (ingredients.length === 0) {
-      return <li>Keine Zutaten gefunden</li>;
+      return <tr><td colSpan="2">Keine Zutaten gefunden</td></tr>;
     } else {
       return ingredients.map((ingredient, index) => (
-        <li key={index}>{ingredient}</li>
+        <tr key={index}>
+          <td>{ingredient.ingredient}</td>
+          <td>{ingredient.measure}</td>
+        </tr>
       ));
     }
   }
 
   return (
-    <div className="cocktail-page">
-      <div className="title">
-        <h1>Cocktail DB</h1>
-      </div>
-      <div className="searchBar">
+    <div className="cocktail-page bg-dark text-light">
+      <div className="searchBar text-center d-flex align-items-center justify-content-center">
         <input
           type="text"
           placeholder="Cocktailname"
           value={cocktailName}
           onChange={(e) => setCocktailName(e.target.value)}
+          className="form-control mr-2"
+          style={{ width: "20%" }}
+          onKeyPress={handleKeyPress}
         />
-        <button onClick={fetchCocktailData}>Suchen</button>
+        <button onClick={fetchCocktailData} className="btn btn-light">Suchen</button>
       </div>
       {cocktailData && (
-        <div>
-          <div className="cocktail-title">
+        <div className="cocktail-results">
+          <div className="cocktail-title text-center mb-4">
             <h2>{cocktailData.strDrink}</h2>
           </div>
-          <div className="infos">
-            <div className="cocktail-img">
-              <img src={cocktailData.strDrinkThumb} alt={cocktailData.strDrink} />
+          <div className="infos d-flex flex-column align-items-center">
+            <div className="cocktail-img col-md-4">
+              <img src={cocktailData.strDrinkThumb} alt={cocktailData.strDrink} className="img-fluid" />
             </div>
-            <div className="cocktail-ingredients">
+            <div className="cocktail-ingredients text-center mt-4">
               <h3>Zutaten</h3>
-              <ul className="white-ul">{renderIngredients()}</ul>
+              <table className="table table-striped table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Zutat</th>
+                    <th scope="col">Menge</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {renderIngredients()}
+                </tbody>
+              </table>
             </div>
-            <div className="cocktail-instructions">
+            <div className="cocktail-instructions text-center mt-4">
               <h3>Zubereitung</h3>
               <p>{cocktailData.strInstructionsDE}</p>
             </div>
