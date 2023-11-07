@@ -3,36 +3,14 @@ import React, { useState } from "react";
 export default function Cocktail() {
   const [cocktailData, setCocktailData] = useState(null);
   const [cocktailName, setCocktailName] = useState("");
+  const [cocktailList, setCocktailList] = useState([]);
 
-  async function fetchCocktailData() {
-    try {
-      const response = await fetch(
-        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktailName}`
-      );
-      const data = await response.json();
-
-      if (data.drinks && data.drinks.length > 0) {
-        setCocktailData(data.drinks[0]);
-      } else {
-        alert("Es wurde kein Cocktail mit diesem Namen gefunden");
-      }
-    } catch (error) {
-      console.error("Fehler beim Abrufen der Daten:", error);
-    }
-  }
-
-  function handleKeyPress(event) {
-    if (event.key === "Enter") {
-      fetchCocktailData();
-    }
-  }
-
-  function renderIngredients() {
+  function renderIngredients(cocktail) {
     const ingredients = [];
     for (let i = 1; i <= 15; i++) {
       // Max 16 Zutaten
-      const ingredient = cocktailData[`strIngredient${i}`];
-      const measure = cocktailData[`strMeasure${i}`];
+      const ingredient = cocktail[`strIngredient${i}`];
+      const measure = cocktail[`strMeasure${i}`];
       if (ingredient && measure) {
         ingredients.push({ ingredient, measure });
       }
@@ -50,6 +28,43 @@ export default function Cocktail() {
     }
   }
 
+  async function fetchCocktailData() {
+    try {
+      const response = await fetch(
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktailName}`
+      );
+      const data = await response.json();
+
+      if (data.drinks && data.drinks.length > 1) {
+        // Mehrere Ergebnisse gefunden
+        setCocktailList(data.drinks);
+        setCocktailData(null);
+      } else if (data.drinks && data.drinks.length === 1) {
+        // Ein Ergebnis gefunden
+        setCocktailData(data.drinks[0]);
+        setCocktailList([]);
+      } else {
+        // Keine Ergebnisse gefunden
+        setCocktailData(null);
+        setCocktailList([]);
+        alert("Es wurden keine Cocktails mit diesem Namen gefunden");
+      }
+    } catch (error) {
+      console.error("Fehler beim Abrufen der Daten:", error);
+    }
+  }
+
+  function handleKeyPress(event) {
+    if (event.key === "Enter") {
+      fetchCocktailData();
+    }
+  }
+
+  function handleCocktailSelect(selectedCocktail) {
+    setCocktailData(selectedCocktail);
+    setCocktailList([]);
+  }
+
   return (
     <div className="cocktail-page bg-dark text-light">
       <div className="searchBar text-center d-flex align-items-center justify-content-center">
@@ -64,6 +79,29 @@ export default function Cocktail() {
         />
         <button onClick={fetchCocktailData} className="btn btn-light">Suchen</button>
       </div>
+      {cocktailList.length > 0 && (
+        <div className="cocktail-list text-center mt-4">
+          <h3>Mögliche Ergebnisse:</h3>
+          <table className="table table-striped table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Cocktail</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cocktailList.map((cocktail) => (
+                <tr
+                  key={cocktail.idDrink}
+                  onClick={() => handleCocktailSelect(cocktail)}
+                  style={{ cursor: "pointer" }}
+                >
+                  <td>{cocktail.strDrink}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
       {cocktailData && (
         <div className="cocktail-results">
           <div className="cocktail-title text-center mb-4">
@@ -83,7 +121,7 @@ export default function Cocktail() {
                   </tr>
                 </thead>
                 <tbody>
-                  {renderIngredients()}
+                  {renderIngredients(cocktailData)}
                 </tbody>
               </table>
             </div>
