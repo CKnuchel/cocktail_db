@@ -1,0 +1,20 @@
+/* dark-theme.css */
+
+body {
+  background-color: #212529; /* Dunkle Hintergrundfarbe */
+  color: #fff; /* Textfarbe */
+}
+
+.home {
+  background-color: #212529 /* Dunkle Hintergrundfarbe */
+}
+
+.titel h1 {
+  color: #fff; /* Textfarbe für den Titel */
+}
+
+.home-image img {
+  max-width: 100%;
+  max-height: 60vh;
+  margin-bottom: -5px;
+}

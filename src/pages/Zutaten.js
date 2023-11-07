@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../css/zutaten.css";
 
 export default function Zutaten() {
   const [cocktailData, setCocktailData] = useState(null);

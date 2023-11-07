@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../css/cocktail.css";
 
 export default function Cocktail() {
   const [cocktailData, setCocktailData] = useState(null);

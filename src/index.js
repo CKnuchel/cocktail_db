@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
-import './css/general.css';
-import './css/navbar.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import './css/dark-theme.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

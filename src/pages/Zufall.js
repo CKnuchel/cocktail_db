@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../css/zufall.css";
 
 export default function Zufall() {
   const [cocktailData, setCocktailData] = useState(null);

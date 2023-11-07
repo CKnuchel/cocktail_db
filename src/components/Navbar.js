@@ -1,30 +1,19 @@
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap';
 
-export default function Navbar(){
-
-
-return (
-    <nav className="nav">
-        <Link to="/" className="site-title">Cocktail DB</Link>
-        <ul>
-            <CustomLink to="/" >Home</CustomLink>
-            <CustomLink to="/pages/cocktail" >Cocktail suchen</CustomLink>
-            <CustomLink to="/pages/zutaten" >Zutaten suchen</CustomLink>
-            <CustomLink to="/pages/zufall" >Zufälliger Cocktail</CustomLink>
-        </ul>
-    </nav>
-)
-
-function CustomLink( {to, children, ...props} ){
-
-    const resolvedPath = useResolvedPath(to);
-    const isActive = useMatch( { path: resolvedPath.pathname, end: true } )
-
-    return (
-        <li className={isActive ? "active" : ""}>
-            <Link to= {to} {...props}>{children}</Link>
-        </li>
-    )
-}
-
+export default function MyNavbar() {
+  return (
+    <Navbar bg="dark" expand="lg" variant="dark">
+      <Link to="/" className="navbar-brand">Cocktail DB</Link>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mx-auto">
+          <Nav.Link as={Link} to="/" className="nav-link">Home</Nav.Link>
+          <Nav.Link as={Link} to="/pages/cocktail" className="nav-link">Cocktail suchen</Nav.Link>
+          <Nav.Link as={Link} to="/pages/zutaten" className="nav-link">Zutaten suchen</Nav.Link>
+          <Nav.Link as={Link} to="/pages/zufall" className="nav-link">Zufälliger Cocktail</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  );
 }
