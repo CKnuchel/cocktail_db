@@ -14,7 +14,7 @@ export default function Zutaten() {
       if (data.ingredients && data.ingredients.length > 0) {
         setCocktailData(data.ingredients[0]);
       } else {
-        alert("Es wurde kein Zutat mit diesem Namen gefunden");
+        alert("Es wurde keine Zutat mit diesem Namen gefunden");
       }
     } catch (error) {
       console.error("Fehler beim Abrufen der Daten:", error);
@@ -22,27 +22,30 @@ export default function Zutaten() {
   }
 
   return (
-    <div className="cocktail-page">
-      <div className="cocktail-title">
+    <div className="cocktail-page bg-dark text-light">
+      <div className="cocktail-title text-center mb-4">
         <h1>Cocktail DB</h1>
       </div>
-      <div className="searchBar">
+      <div className="searchBar text-center d-flex align-items-center justify-content-center">
         <input
           type="text"
           placeholder="Zutatenname"
           value={ingredientName}
           onChange={(e) => setIngredientName(e.target.value)}
+          className="form-control mr-2"
+          style={{ width: "20%" }}
+          onKeyPress={(event) => {
+            if (event.key === "Enter") {
+              fetchCocktailData();
+            }
+          }}
         />
-        <button className="ing-btn" onClick={fetchCocktailData}>
-          Suchen
-        </button>
+        <button className="btn btn-light" onClick={fetchCocktailData}>Suchen</button>
       </div>
       {cocktailData && (
-        <div className="infos">
-          <div className="">
-            <h3>Alkoholwert: {cocktailData.strABV}</h3>
-            <p>{cocktailData.strDescription}</p>
-          </div>
+        <div className="infos text-center mt-4">
+          <h3>Alkoholwert: {cocktailData.strABV}</h3>
+          <p>{cocktailData.strDescription}</p>
         </div>
       )}
     </div>
